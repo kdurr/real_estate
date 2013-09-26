@@ -5,17 +5,17 @@ feature 'add new tenant', %Q{
   I want to add a tenant
   So that I can keep track of who is renting in my building
   } do
- #
- # Acceptance Criteria:
- # I must specify a first name, last name, building they're renting in,
- #  and a valid email address
- # If the tenant info is valid, the tenant is associated with the building.
- #  The info is persisted.
- # If the tenant info is invalid, an error message is supplied so the landlord
- #  can fix the entry. The info is not persisted.
- #
- # There is a page that lists all of my tenants sorted by last and first name
- # I can see where each tenant lives and what their email address is
+  #
+  # Acceptance Criteria:
+  # I must specify a first name, last name, building they're renting in,
+  #  and a valid email address
+  # If the tenant info is valid, the tenant is associated with the building.
+  #  The info is persisted.
+  # If the tenant info is invalid, an error message is supplied so the landlord
+  #  can fix the entry. The info is not persisted.
+  #
+  # There is a page that lists all of my tenants sorted by last and first name
+  # I can see where each tenant lives and what their email address is
 
  scenario 'with valid info, owner can add tenant' do
   prev_count = Tenant.count
@@ -41,5 +41,24 @@ feature 'add new tenant', %Q{
   visit tenants_path
   expect(page).to have_content("First Name")
  end
+end
+
+feature 'evict a tenant', %Q{
+  As a landlord
+  I want to evict tenants
+  So that they're no longer associated with a building I own
+  } do
+  #
+  # Acceptance Criteria:
+  # When viewing my roster of tenants, I want an option to evict each tenant
+  # When I opt to evict a tenant, the tenant is removed from my roster and is
+  #    no longer associated with the building
+
+  scenario 'have option to evict each tenant' do
+    prev_count = Tenant.count
+    visit tenants_path
+    click_on 'Evict'
+    expect(Tenant.count).to eql(prev_count - 1)
+  end
 
 end

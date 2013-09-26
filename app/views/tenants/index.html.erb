@@ -17,6 +17,7 @@
       <td><%= person.first_name %></td>
       <td><%= person.building_id %></td>
       <td><%= person.email %></td>
+      <td><%= link_to 'Evict', person, method: :delete, data: { confirm: 'You really want to do this?' } %></td>
     <% end %>
     </tr>
   </tbody>

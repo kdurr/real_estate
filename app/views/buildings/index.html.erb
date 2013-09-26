@@ -1,10 +1,17 @@
-<h1>Welcome Real Estate Associate!</h1>
+<h1 class="welcome">Welcome Real Estate Associate!</h1>
 
+<div class="add-new">
 <h3>If you would like to add a new building:</h3>
 <%= link_to 'Add New Building', new_building_path %>
+</div>
 
+<div class="add-new">
 <h3>If you would like to add a new building owner:</h3>
 <%= link_to 'Add New Owner', new_owner_path %>
+</div>
 
-<h3>If you would like to view all tenants:</h3>
-<%= link_to 'View Tenants', tenants_path %>
+<div class="add-new">
+<h3>If you would like to view all or add tenants:</h3>
+<%= link_to 'View Tenants', tenants_path %><br>
+<%= link_to 'Add New Tenant', new_tenant_path %>
+</div>

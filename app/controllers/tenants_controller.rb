@@ -17,6 +17,14 @@ class TenantsController < ApplicationController
     end
   end
 
+  def destroy
+    @tenant = Tenant.find(params[:id])
+    @tenant.destroy
+    respond_to do |format|
+      format.html { redirect_to tenants_path }
+    end
+  end
+
   protected
   def tenant_params
     params.require(:tenant).permit(:first_name, :last_name, :building_id, :email)

@@ -7,6 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <style>
+  html {
+    background-color: #FDD7E4;
+    font-family: Helvetica, sans-serif;
+  }
+  .welcome {
+    text-align: center;
+  }
+  .add-new {
+    text-align: center;
+    display: block;
+    border: 1px solid gray;
+  }
+  th {
+    border-bottom: 1px solid black;
+    padding: 3px;
+  }
+  td {
+    text-align: center;
+  }
+  </style>
 
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
