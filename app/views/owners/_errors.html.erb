@@ -1,7 +1,0 @@
-<%- if @building.errors.size > 0 -%>
-  <ul class="errors">
-    <%- @building.errors.full_messages.each do |message| -%>
-    <li><strong><%= message %></strong></li>
-    <%- end -%>
-  </ul>
-<%- end -%>

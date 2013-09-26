@@ -9,6 +9,8 @@ class Building < ActiveRecord::Base
 
   validates_numericality_of :postal_code
   validates_length_of :postal_code, :is=>5
+
+  validates_numericality_of :owner_id
   # Need to validate formate of postal_code to take zipcodes starting with 0
 
   def self.states

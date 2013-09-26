@@ -6,6 +6,8 @@
   </ul>
 <%- end -%>
 
+<h2>Add a Building</h2>
+
 <%= form_for @building do |f| %>
   <div>
     <%= f.label :street_address, 'Street Address' %>
@@ -26,6 +28,10 @@
   <div>
     <%= f.label :description %>
     <%= f.text_area :description, size: "25x3" %>
+  </div>
+  <div>
+    <%= f.label :owner_id, "Owner ID" %>
+    <%= f.text_field :owner_id %>
   </div>
   <div>
     <%= f.submit 'Add Building' %>

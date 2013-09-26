@@ -26,6 +26,7 @@ feature 'add a building record', %Q{
     select 'FL', from: 'State'
     fill_in 'Postal Code', with: 32963
     fill_in 'Description', with: 'This was my home! Beach time!'
+    fill_in 'Owner', with: 2
     click_button 'Add Building'
     expect(page).to have_content("Building successfully added!")
     expect(Building.count).to eql(prev_count + 1)
