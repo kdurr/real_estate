@@ -1,0 +1,34 @@
+<%- if @building.errors.size > 0 -%>
+  <ul class="errors">
+    <%- @building.errors.full_messages.each do |message| -%>
+    <li><strong><%= message %></strong></li>
+    <%- end -%>
+  </ul>
+<%- end -%>
+
+<%= form_for @building do |f| %>
+  <div>
+    <%= f.label :street_address, 'Street Address' %>
+    <%= f.text_field :street_address %>
+  </div>
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div>
+    <%= f.label :state %>
+    <%= f.select :state, Building.states, include_blank: true %>
+  </div>
+  <div>
+    <%= f.label :postal_code, 'Postal Code' %>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.submit 'Add Building' %>
+  </div>
+
+<%- end -%>

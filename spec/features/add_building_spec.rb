@@ -31,5 +31,11 @@ feature 'add a building record', %Q{
     expect(Building.count).to eql(prev_count + 1)
   end
 
-  scenario 'with invalid info, the building is not recorded'
+  scenario 'with invalid info, the building is not recorded' do
+    prev_count = Building.count
+    visit new_building_path
+    click_button 'Add Building'
+    expect(page).to have_content("can't be blank")
+    expect(Building.count).to eql(prev_count)
+  end
 end
