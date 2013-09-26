@@ -1,0 +1,28 @@
+<h1>Tenants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Building ID</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tenant.each do |person| %>
+    <tr>
+      <td><%= person.last_name %></td>
+      <td><%= person.first_name %></td>
+      <td><%= person.building_id %></td>
+      <td><%= person.email %></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Tenant', new_tenant_path %><br>
+<%= link_to 'Back', buildings_path %>

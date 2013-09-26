@@ -1,6 +1,9 @@
 class Building < ActiveRecord::Base
   belongs_to :owner,
     inverse_of: :buildings
+  has_many :tenants,
+    through: :owner,
+    inverse_of: :building
 
   validates_presence_of :street_address
   validates_presence_of :city

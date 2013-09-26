@@ -1,4 +1,6 @@
 RealEstate::Application.routes.draw do
+  resources :tenants
+
   resources :owners
 
   resources :buildings
