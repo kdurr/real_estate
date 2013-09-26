@@ -24,7 +24,7 @@ feature 'add a building record', %Q{
     fill_in 'Street Address', with: '1403 Club Drive'
     fill_in 'City', with: 'Vero Beach'
     select 'FL', from: 'State'
-    fill_in 'Postal Code', with: 32963
+    fill_in 'Postal Code', with: "32963"
     fill_in 'Description', with: 'This was my home! Beach time!'
     fill_in 'Owner', with: 2
     click_button 'Add Building'

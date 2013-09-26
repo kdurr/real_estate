@@ -1,4 +1,7 @@
 class BuildingsController < ApplicationController
+  def index
+  end
+  
   def new
     @building = Building.new
   end

@@ -15,6 +15,6 @@ describe Building do
   it { should have_valid(:state).when('MA', 'NC') }
   it { should_not have_valid(:state).when(nil, '') }
 
-  it { should have_valid(:postal_code).when(32963, 32960) }
-  it { should_not have_valid(:postal_code).when(nil, '', 'abc', 1234567, 123)}
+  it { should have_valid(:postal_code).when('02122', '32960') }
+  it { should_not have_valid(:postal_code).when(nil, '', 'abc', '1234567', '123')}
 end

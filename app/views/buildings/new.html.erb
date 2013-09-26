@@ -28,13 +28,36 @@
   <div>
     <%= f.label :description %>
     <%= f.text_area :description, size: "25x3" %>
-  </div>
-  <div>
+  </div><br>
+  <div>Optional Owner Information (Refer to Owner Database for ID)</div>
+    <div>
     <%= f.label :owner_id, "Owner ID" %>
     <%= f.text_field :owner_id %>
   </div>
+
+  <% if false %>
+  <div>
+    <%= f.fields_for :owner do |ff| %>
+      <div>
+        <%= ff.label :first_name, 'Owner First Name' %>
+        <%= ff.text_field :first_name %>
+      </div>
+      <div>
+        <%= ff.label :last_name, 'Owner Last Name' %>
+        <%= ff.text_field :last_name %>
+      </div>
+      <div>
+        <%= ff.label :email, 'Owner Email' %>
+        <%= ff.text_field :email %>
+      </div>
+    <% end %>
+  </div>
+  <%- end -%>
+  
   <div>
     <%= f.submit 'Add Building' %>
   </div>
 
 <%- end -%>
+
+<%= link_to 'Back', root_path %>
