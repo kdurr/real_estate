@@ -14,8 +14,6 @@ class Building < ActiveRecord::Base
   validates_format_of :postal_code, 
     :with => /\d{5}/
 
-  # Need to validate formate of postal_code to take zipcodes starting with 0
-
   def self.states
     [
       ['AK'],

@@ -12,4 +12,5 @@ class Owner < ActiveRecord::Base
 
   validates_format_of :email, 
     :with => /.+@.+\..+/i
+
 end
