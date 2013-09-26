@@ -31,5 +31,11 @@ feature 'add owner profile', %Q{
     expect(Owner.count).to eql(prev_count + 1)
   end
 
-  scenario 'with invalid info, a new owner is not added'
+  scenario 'with invalid info, a new owner is not added' do
+    prev_count = Owner.count
+    visit new_owner_path
+    click_button 'Add Owner'
+    expect(page).to have_content("can't be blank")
+    expect(Owner.count).to eql(prev_count)
+  end
 end
