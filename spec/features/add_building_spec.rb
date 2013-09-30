@@ -17,8 +17,11 @@ feature 'add a building record', %Q{
   #     the building is not recorded and I am presented with errors
   # Upon successfully creating a building, I am redirected so that I can record
   #   another building
+  
+  let(:owner) { FactoryGirl.create(:owner) }
 
   scenario 'with valid info, the building is recorded' do
+    owner
     prev_count = Building.count
     visit new_building_path
     fill_in 'Street Address', with: '1403 Club Drive'
@@ -26,10 +29,13 @@ feature 'add a building record', %Q{
     select 'FL', from: 'State'
     fill_in 'Postal Code', with: "32963"
     fill_in 'Description', with: 'This was my home! Beach time!'
-    fill_in 'Owner', with: 2
+    save_and_open_page
+    select owner.full_name, from: 'Owner'
     click_button 'Add Building'
     expect(page).to have_content("Building successfully added!")
     expect(Building.count).to eql(prev_count + 1)
+
+    expect(Building.last.owner).to eql(owner)
   end
 
   scenario 'with invalid info, the building is not recorded' do
