@@ -9,4 +9,8 @@ class Owner < ActiveRecord::Base
 
   validates_format_of :email, 
     :with => /.+@.+\..+/i
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
 end
